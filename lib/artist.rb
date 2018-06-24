@@ -22,4 +22,8 @@ class Artist
      find.nil? ? Artist.new(name) : find
   end
 
+  def print_songs
+    self.songs
+  end
+
 end
