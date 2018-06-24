@@ -21,7 +21,7 @@ class Artist
     self.all.find{|a| a.name.to_s == name}
   end
 
-  def create(name)
+  def self.create(name)
     self.new(name).tap{|artist|artist.save}
   end
 
