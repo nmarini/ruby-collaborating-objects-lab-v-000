@@ -17,9 +17,16 @@ class Artist
     @@all << self
   end
 
+  def self.find(name)
+    self.all.find{|a| a.name.to_s == name}
+  end
+
+  def create(name)
+    self.new(name).tap{|artist|artist.save}
+  end
+
   def self.find_or_create_by_name(name)
-     find = self.all.find{|a| a.name.to_s == name}
-     find.nil? ? Artist.new(name) : find
+     self.find.nil? ? self.create : find
   end
 
   def print_songs
